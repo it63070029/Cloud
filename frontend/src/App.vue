@@ -50,6 +50,14 @@
               <strong>Profile</strong>
             </router-link>
           </div>
+          <div v-if="user && user.role == 'user'" class="navbar-item">
+            <router-link :to="{ name: 'applyAuthor', params: { user_id: user.user_id }}">
+              <span class="icon">
+                <i class="fa fa-sharp fa-solid fa-pen"></i>
+              </span>
+              <strong>Write a Novel</strong>
+            </router-link>
+          </div>
           <div v-if="user" class="navbar-item" @click="logOut()">
             <span class="icon">
               <i class="fa fa-sign-out"></i>

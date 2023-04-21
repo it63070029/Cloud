@@ -56,5 +56,27 @@ router.put("/profile/:user_id",upload.single("newImage"),async function (req, re
 
 });
 
+// apply role to be a author
+router.put("/applyAuthor/:user_id", async function(req, res, next){
+  const author = 'author'
+  const conn = await pool.getConnection()
+  await conn.beginTransaction();
+  try {
+    await conn.query(
+      'UPDATE user SET role=? WHERE user_id=?', [author, req.params.user_id]
+    )
+    console.log('success update role to author')
+    conn.commit()
+    res.send("success update role!");
+  }
+  catch (err) {
+    await conn.rollback();
+    next(err);
+  } 
+  finally {
+      console.log('finally')
+      conn.release();
+  }
+});
 
 exports.router = router;
