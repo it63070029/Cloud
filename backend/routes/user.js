@@ -46,7 +46,8 @@ router.post('/user/register', async (req, res, next) => {
     await conn.beginTransaction()
 
     const username = req.body.username
-    const password = req.body.password
+//     const password = req.body.password
+    const password = await bcrypt.hash(req.body.password, 5)
     const first_name = req.body.first_name
     const last_name = req.body.last_name
     const email = req.body.email
@@ -97,9 +98,12 @@ router.post('/user/login', async (req, res, next) => {
         }
 
         // Check if password is correct
-        if (!(password == user.password)) {
+        if (!(await bcrypt.compare(password, user.password))) {
             throw new Error('Incorrect password')
         }
+//         if (!(password == user.password)) {
+//             throw new Error('Incorrect password')
+//         }
 
         // Check if token already existed
         const [tokens] = await conn.query(
