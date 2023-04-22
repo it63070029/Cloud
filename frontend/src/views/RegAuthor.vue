@@ -13,6 +13,7 @@
                                     <div class="subtitle my-3">Firstname: </div>
                                     <div class="subtitle my-5">Lastname: </div>
                                     <div class="subtitle my-3">Email: </div>
+                                    
                                 </div>
                                 <div class="column mr-6">
                                     <!-- <input class="input my-1 mr-6" type="text" disabled v-model="users.username"/> -->
@@ -20,6 +21,10 @@
                                     <input class="input my-1" type="text" disabled v-model="users.lastname"/>
                                     <input class="input my-1" type="text" disabled v-model="users.email"/>
                                 </div>
+                            </div>
+                            <label class="label">Alias :</label>
+                            <div class="control">
+                                <input class="input" type="text" v-model="alias">
                             </div>
                         </div>
                         <footer class="card-footer">
@@ -43,18 +48,26 @@
     data() {
         return {
             users : this.user,
+            alias: '',
         };
     },
     methods: {
         applyToAuthor(){
-            axios
-            .put(`http://localhost:3000/applyAuthor/${this.users.user_id}`)
-            .then((res)=>{
-                console.log(res)
-                this.$router.push({name: 'authorBook', params: { user_id: this.users.user_id }})
-                document.location.reload(true);
-            })
-            .catch((e) => console.log(e));
+            if (this.alias != ''){
+                axios
+                .put(`http://localhost:3000/applyAuthor/${this.users.user_id}`, {
+                    alias: this.alias
+                })
+                .then((res)=>{
+                    console.log(res)
+                    this.$router.push({name: 'authorBook', params: { user_id: this.users.user_id }})
+                    document.location.reload(true);
+                })
+                .catch((e) => console.log(e));
+            }
+            else {
+                alert('Please add your alias')
+            }
         }
     },
 };
