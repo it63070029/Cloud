@@ -334,13 +334,6 @@ export default {
           console.log(err);
         });
     },
-    imagePath(file_path) {
-      if (file_path) {
-        return "http://localhost:3000/" + file_path;
-      } else {
-        return "https://bulma.io/images/placeholders/640x360.png";
-      }
-    },
     shortContent(content) {
       if (!this.descript) {
         if (content.length > 120) {

@@ -98,13 +98,6 @@ export default {
           console.log(err);
         });
     },
-    imagePath(file_path) {
-      if (file_path) {
-        return "http://18.206.137.146:3000/" + file_path;
-      } else {
-        return "https://bulma.io/images/placeholders/640x360.png";
-      }
-    },
     shortContent(content) {
       if (content.length > 100) {
         return content.substring(0, 97) + "...";

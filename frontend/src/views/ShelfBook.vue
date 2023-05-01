@@ -93,13 +93,6 @@ export default {
     //     }
       
     // },
-    imagePath(file_path) {
-      if (file_path) {
-        return "http://localhost:3000/" + file_path;
-      } else {
-        return "https://bulma.io/images/placeholders/640x360.png";
-      }
-    },
     deleteBook(novel_id){
         //young tom mai dai
         console.log(novel_id)

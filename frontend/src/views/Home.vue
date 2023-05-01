@@ -149,13 +149,6 @@ export default {
           console.log(err);
         });
     },
-    imagePath(file_path) {
-      if (file_path) {
-        return "http://localhost:3000/" + file_path;
-      } else {
-        return "https://bulma.io/images/placeholders/640x360.png";
-      }
-    },
     shortContent(content) {
       if (content.length > 200) {
         return content.substring(0, 197) + "...";
@@ -236,43 +229,6 @@ export default {
           console.log(err);
         });
     },
-    // selectImages(event) {
-    //         var fileData = event.target.files[0];
-    //     console.log(fileData)
-    //         if(this.newImage.length>=1){
-              
-    //             this.newImage.splice(0, 1);
-    //             this.newImage.push(fileData)
-    //             console.log(this.newImage)
-
-    //         }
-    //         else{
-    //             // this.users.image=[];
-    //             this.newImage.push(fileData)
-    //             console.log(this.newImage)
-    //         }
-    //     },
-    // sendImg(){
-    //   let formData = new FormData();
-    //         // formData.append("username", this.users.username);
-    //         if(this.newImage.length>0){
-    //             formData.append("newImage", this.newImage[0]);
-    //         }
-    //         // else{
-    //         //     formData.append("image", this.users.image[0]);
-    //         // }
-
-    //         axios
-    //         .put(`http://localhost:3000/test`,formData,{
-    //             headers:{
-    //                 'Content-Type': 'multipart/form-data'
-    //             },
-    //         })
-    //         .then((res)=>{
-    //             this.$router.push('/')}
-    //         )
-    //         .catch((e) => console.log(e));
-    // }
   },
 };
 </script>
