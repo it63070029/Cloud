@@ -1,7 +1,7 @@
 <template>
     <section class="section" id="app">
        <div class="content">
-          
+          <img src="https://bucket-novel.s3.amazonaws.com/static/uploads/newImage-1682954951090.png"/>
             <center><div class="title mb-5">My Profile</div></center>
             <div class="columns">
                 <div class="column is-4"></div>
