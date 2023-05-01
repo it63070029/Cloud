@@ -32,7 +32,7 @@ async function isLoggedIn (req, res, next) {
     )
     
     req.user = users[0]
-    console.log('islogin in middleware: '+req.user)
+    // console.log('islogin in middleware: '+req.user)
     next()
 }
 
