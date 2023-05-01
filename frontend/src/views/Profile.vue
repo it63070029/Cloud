@@ -11,7 +11,7 @@
                             <figure class="image">
                                 <img
                                 style="height: 200px;width: 180px;"
-                                :src="imagePath(users.image)"
+                                src="imagePath(users.image)"
                                 alt="Placeholder image"
                                 />
                             </figure>
