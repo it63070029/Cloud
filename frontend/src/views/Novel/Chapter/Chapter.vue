@@ -189,7 +189,7 @@ export default {
   methods: {
     getNovels() {
       axios
-        .get(`http://54.159.216.132:3000/novel/chapter/${this.$route.params.novel_id}`)
+        .get(`http://18.206.137.146:3000/novel/chapter/${this.$route.params.novel_id}`)
         .then((res) => {
           this.selectNovels = res.data.selectNovels;
           this.chapters = res.data.chapters;
@@ -221,7 +221,7 @@ export default {
     },
     deleteChapter(chapter_id){
         axios
-        .delete(`http://54.159.216.132:3000/novel/${this.novel_id}/chapter/${chapter_id}`)
+        .delete(`http://18.206.137.146:3000/novel/${this.novel_id}/chapter/${chapter_id}`)
         .then((res) => location.reload())
         .catch((err) => {
           console.log(err);
@@ -229,7 +229,7 @@ export default {
     },
     getComments(){
       axios
-      .get(`http://54.159.216.132:3000/comment/${this.$route.params.novel_id}`)
+      .get(`http://18.206.137.146:3000/comment/${this.$route.params.novel_id}`)
       .then((res)=>{
         this.comments = res.data.comments;
       })
@@ -240,7 +240,7 @@ export default {
     createComment(){
       console.log("test Post Comment"+this.$route.params.novel_id)
       axios
-      .post(`http://54.159.216.132:3000/comment/${this.$route.params.novel_id}/${this.users.user_id}`,{
+      .post(`http://18.206.137.146:3000/comment/${this.$route.params.novel_id}/${this.users.user_id}`,{
         comment_text : this.commentText
       })
       .then((res) => location.reload())
@@ -252,7 +252,7 @@ export default {
     deleteComment(comment_id){
       console.log("Delete Comment"+comment_id)
       axios
-      .delete(`http://54.159.216.132:3000/comment/${comment_id}/${this.users.user_id}`,)
+      .delete(`http://18.206.137.146:3000/comment/${comment_id}/${this.users.user_id}`,)
       .then((res) => location.reload())
       .catch((err) => {
         console.log(err);
@@ -260,7 +260,7 @@ export default {
     },
     changeComment(){
       axios
-      .put(`http://54.159.216.132:3000/comment/${this.comment_id}`,{
+      .put(`http://18.206.137.146:3000/comment/${this.comment_id}`,{
         
         comment_text:this.commentEdit
       })

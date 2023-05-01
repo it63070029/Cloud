@@ -157,7 +157,7 @@
             }
 
             axios
-            .put(`http://54.159.216.132:3000/profile/${this.users.user_id}`,formData,{
+            .put(`http://18.206.137.146:3000/profile/${this.users.user_id}`,formData,{
                 headers:{
                     'Content-Type': 'multipart/form-data'
                 },

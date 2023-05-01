@@ -52,7 +52,7 @@ export default {
   methods: {
     getDeatailChapter() {
       axios
-        .get(`http://54.159.216.132:3000/novel/chapter/showChapter/${this.$route.params.chapter_id}/${this.$route.params.novel_id}`)
+        .get(`http://18.206.137.146:3000/novel/chapter/showChapter/${this.$route.params.chapter_id}/${this.$route.params.novel_id}`)
             // user_id:this.users.user_id
         .then((res) => {
           this.selectChapters = res.data.selectChapters;
@@ -76,7 +76,7 @@ export default {
     },
     getChapterList(){
       axios
-      .get(`http://54.159.216.132:3000/novel/chapter/showChapter/${this.$route.params.novel_id}`)
+      .get(`http://18.206.137.146:3000/novel/chapter/showChapter/${this.$route.params.novel_id}`)
       .then((res) => {
           this.chapters = res.data.chapters;
       })

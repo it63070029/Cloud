@@ -3,6 +3,7 @@ const path = require("path");
 const pool = require("../config");
 const fs = require("fs");
 const multer = require("multer");
+const { uploadFile } = require('../s3upload')
 
 router = express.Router();
 
@@ -28,17 +29,19 @@ router.put("/profile/:user_id",upload.single("newImage"),async function (req, re
     const lastname = req.body.lastname
     const email = req.body.email
     const file = req.file;
+    uploadFile(file.path)
     const conn = await pool.getConnection()
     await conn.beginTransaction();
     console.log(req.body.image)
     
+    const pathImg = 'https://bucket-novel.s3.amazonaws.com/static%5Cuploads%5C' + file.filename
 
     try {
        
         await conn.query(
         'UPDATE user SET firstname=?,lastname=?,email=? WHERE user_id=?',[firstname,lastname,email,req.params.user_id])
         if(req.body.image == undefined &&file.path !=undefined ){
-            await conn.query('UPDATE user SET image=? WHERE user_id=?',[file.path.substring(6),req.params.user_id])
+            await conn.query('UPDATE user SET image=? WHERE user_id=?',[pathImg,req.params.user_id])
         }
         console.log('success update profile')
         conn.commit()
@@ -86,4 +89,36 @@ router.put("/applyAuthor/:user_id", async function(req, res, next){
   }
 });
 
+// router.put("/test",upload.single("newImage"), async function(req, res, next){
+//   const file = req.file;
+//     // const conn = await pool.getConnection()
+//     // await conn.beginTransaction();
+//     console.log('come')
+//     console.log(req.body)
+//     console.log(file)
+//     console.log(file.filename)
+//     console.log(file.path)
+//     uploadFile(file.path)
+
+//     // try {
+       
+//     //     await conn.query(
+//     //     'UPDATE user SET firstname=?,lastname=?,email=? WHERE user_id=?',[firstname,lastname,email,req.params.user_id])
+//     //     if(req.body.image == undefined &&file.path !=undefined ){
+//     //         await conn.query('UPDATE user SET image=? WHERE user_id=?',[file.path.substring(6),req.params.user_id])
+//     //     }
+//     //     console.log('success update profile')
+//     //     conn.commit()
+//     //     res.send("success!");
+//     // } 
+//     // catch (err) {
+//     //     await conn.rollback();
+//     //     next(err);
+//     // } 
+//     // finally {
+//     //     console.log('finally')
+//     //     conn.release();
+//     // }
+//     return;
+// })
 exports.router = router;
