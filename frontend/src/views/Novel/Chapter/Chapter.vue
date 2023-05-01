@@ -313,16 +313,13 @@ export default {
     };
   },
   created(){
-    this.getUser();
+    this.users = this.user
   },
   mounted() {
     this.getNovels();
     this.getComments();
   },
   methods: {
-    getUser(){
-      this.users = this.user
-    },
     getNovels() {
       axios
         .get(
