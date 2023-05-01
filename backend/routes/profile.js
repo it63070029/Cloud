@@ -34,7 +34,7 @@ router.put("/profile/:user_id",upload.single("newImage"),async function (req, re
     await conn.beginTransaction();
     console.log(req.body.image)
     
-    const pathImg = 'https://bucket-novel.s3.amazonaws.com/static%5Cuploads%5C' + file.filename
+    const pathImg = 'https://bucket-novel.s3.amazonaws.com/static/uploads/' + file.filename
 
     try {
        
