@@ -3,7 +3,7 @@ const path = require("path");
 const pool = require("../config");
 const fs = require("fs");
 const multer = require("multer");
-
+const { uploadFile } = require('../s3upload')
 
 router = express.Router();
 
@@ -87,6 +87,8 @@ router.post("/novel/createNovel/:user_id",upload.single("image"), async function
     const title = req.body.title
     const description = req.body.description
     const file = req.file;
+    uploadFile(file.path)
+    const pathImg = 'https://bucket-novel.s3.amazonaws.com/static/uploads/' + file.filename
     const conn = await pool.getConnection();
     await conn.beginTransaction();
 
@@ -96,7 +98,7 @@ router.post("/novel/createNovel/:user_id",upload.single("image"), async function
         let results = await conn.query(
         "INSERT INTO novel(title, descript, image, author_id, `like`,alias) " +
         "VALUES(?, ?, ?, ?, 0,?);",
-        [title, description, file.path.substring(6),rows[0].author_id,rows[0].alias]);
+        [title, description, pathImg,rows[0].author_id,rows[0].alias]);
     
         await conn.commit();
         res.send("success!");
@@ -152,7 +154,8 @@ router.put("/novel/:novel_id/:user_id",upload.single("newImage"),async function 
   const title = req.body.title
   const descript = req.body.descript
   const file = req.file;
-
+  uploadFile(file.path)
+  const pathImg = 'https://bucket-novel.s3.amazonaws.com/static/uploads/' + file.filename
   // console.log(file)
 
   const conn = await pool.getConnection();
@@ -165,7 +168,7 @@ router.put("/novel/:novel_id/:user_id",upload.single("newImage"),async function 
       'UPDATE novel SET title=?, descript=? WHERE novel_id=?',[title, descript,req.params.novel_id])
 
       if(req.body.image == undefined){
-        await conn.query('UPDATE novel SET image=? WHERE novel_id=?',[file.path.substring(6),req.params.novel_id])
+        await conn.query('UPDATE novel SET image=? WHERE novel_id=?',[pathImg,req.params.novel_id])
       }
         // console.log('success')
         conn.commit()

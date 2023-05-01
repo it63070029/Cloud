@@ -26,7 +26,8 @@
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img :src="imagePath(image)" alt="Placeholder image" />
+                <img v-if="image != null" :src="image" alt="Placeholder image" />
+                <img v-else src="https://bulma.io/images/placeholders/640x360.png" alt="Placeholder image" />
               </figure>
             </div>
             <footer class="card-footer">

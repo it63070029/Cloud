@@ -12,9 +12,14 @@
             <div class="card">
               <div class="card-image pt-5">
                 <figure class="image">
-                  <img
+                  <img v-if="book.image != null"
                     style="height: 150px;width: 120px;"
-                    :src="imagePath(book.image)"
+                    :src="book.image"
+                    alt="Placeholder image"
+                  />
+                  <img v-else
+                    style="height: 150px;width: 120px;"
+                    src="https://bulma.io/images/placeholders/640x360.png"
                     alt="Placeholder image"
                   />
                 </figure>
