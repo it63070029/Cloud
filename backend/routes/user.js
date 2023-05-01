@@ -132,7 +132,9 @@ router.post('/user/login', async (req, res, next) => {
 
 router.get('/user/login', isLoggedIn, async (req, res, next) => {
     // req.user ถูก save ข้อมูล user จาก database ใน middleware function "isLoggedIn"
+    console.log('in user.js: '+res.json(req.user))
     res.json(req.user)
+    
 })
 
 

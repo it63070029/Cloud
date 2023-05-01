@@ -30,8 +30,9 @@ async function isLoggedIn (req, res, next) {
         'SELECT *' + 
         'FROM user WHERE user_id = ?', [token.user_id]
     )
+    
     req.user = users[0]
-
+    console.log('islogin in middleware: '+req.user)
     next()
 }
 
