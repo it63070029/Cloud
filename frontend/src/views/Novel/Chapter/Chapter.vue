@@ -298,7 +298,7 @@ export default {
   props: ["user"],
   data() {
     return {
-      users: null,
+      users: this.user,
       selectNovels: [],
       chapters: [],
       novel_id: this.$route.params.novel_id,
@@ -312,10 +312,12 @@ export default {
       descript: false,
     };
   },
+  created(){
+    this.getUser();
+  },
   mounted() {
     this.getNovels();
     this.getComments();
-    this.getUser();
   },
   methods: {
     getUser(){
