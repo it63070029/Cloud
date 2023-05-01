@@ -379,7 +379,7 @@ export default {
             comment_text: this.commentText,
           }
         )
-        .then((res) => location.reload())
+        .then((res) => document.location.reload(true))
         .catch((err) => {
           console.log(err);
         });
