@@ -58,7 +58,7 @@ export default {
         password: this.password
       }
 
-      axios.post('http://localhost:3000/user/login', data)
+      axios.post('http://54.159.216.132:3000/user/login', data)
         .then(res => {
           const token = res.data.token                                
           localStorage.setItem('token', token)

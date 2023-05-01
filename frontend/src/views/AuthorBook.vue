@@ -85,7 +85,7 @@ export default {
   methods: {
     getNovels() {
       axios
-        .get(`http://localhost:3000/author/myBook/${this.users.user_id}`)
+        .get(`http://54.159.216.132:3000/author/myBook/${this.users.user_id}`)
         .then((res) => {
           this.novels = res.data.novels;
         })
@@ -95,7 +95,7 @@ export default {
     },
     imagePath(file_path) {
       if (file_path) {
-        return "http://localhost:3000/" + file_path;
+        return "http://54.159.216.132:3000/" + file_path;
       } else {
         return "https://bulma.io/images/placeholders/640x360.png";
       }
@@ -108,13 +108,13 @@ export default {
     },
     deleteNovel(novel_id){
       axios
-      .delete(`http://localhost:3000/novel/${novel_id}`)
+      .delete(`http://54.159.216.132:3000/novel/${novel_id}`)
       .then((res) => location.reload())
       .catch((err) => {console.log(err);});
     },
      addView(novel_id){
       axios
-        .put(`http://localhost:3000/novel/addview/${novel_id}/${this.users.user_id}`)
+        .put(`http://54.159.216.132:3000/novel/addview/${novel_id}/${this.users.user_id}`)
         .then((response) => {
           let selectedNovel = this.novels.filter((e) => e.novel_id === novel_id)[0];
           selectedNovel.view = response.data.view;

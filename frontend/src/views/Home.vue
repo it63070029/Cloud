@@ -120,7 +120,7 @@ export default{
     addShelf(novel_id){
       if(this.users !=null){
         axios
-        .post(`http://localhost:3000/shelfBook/`,{
+        .post(`http://54.159.216.132:3000/shelfBook/`,{
           novel_id:novel_id,
           user_id:this.users.user_id
         })
@@ -134,7 +134,7 @@ export default{
       // for(let i=0;i<this.shelfBooks.length;i++){
       //   if(this.shelfBooks[i].novel_id!==novel_id){
       //     axios
-      //     .post(`http://localhost:3000/shelfBook`,{
+      //     .post(`http://54.159.216.132:3000/shelfBook`,{
       //       novel_id:novel_id,
       //       user_id:this.users.user_id
       //     })
@@ -146,7 +146,7 @@ export default{
     },
     getShelfBooks(){
         axios
-        .get(`http://localhost:3000/${this.users.user_id}`)
+        .get(`http://54.159.216.132:3000/${this.users.user_id}`)
         .then((res)=>{
           this.shelfBooks = res.data.shelfBooks
         })
@@ -159,7 +159,7 @@ export default{
     addLike(novel_id){
       if(this.users!=null){
         axios
-        .put(`http://localhost:3000/novel/addlike/${novel_id}/${this.users.user_id}`)
+        .put(`http://54.159.216.132:3000/novel/addlike/${novel_id}/${this.users.user_id}`)
         .then((response) => {
           let selectedNovel = this.novels.filter((e) => e.novel_id === novel_id)[0];
           selectedNovel.like = response.data.like;
@@ -176,7 +176,7 @@ export default{
     },
     addView(novel_id){
       axios
-        .put(`http://localhost:3000/novel/addview/${novel_id}/${this.users.user_id}`)
+        .put(`http://54.159.216.132:3000/novel/addview/${novel_id}/${this.users.user_id}`)
         .then((response) => {
           let selectedNovel = this.novels.filter((e) => e.novel_id === novel_id)[0];
           selectedNovel.view = response.data.view;

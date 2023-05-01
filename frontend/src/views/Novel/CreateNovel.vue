@@ -108,7 +108,7 @@ export default {
         formData.append("image", this.image[0]);
         console.log(this.users.user_id)
         axios
-        .post(`http://localhost:3000/novel/createNovel/${this.users.user_id}`,formData,{
+        .post(`http://54.159.216.132:3000/novel/createNovel/${this.users.user_id}`,formData,{
             headers:{
                 'Content-Type': 'multipart/form-data'
             },

@@ -103,7 +103,7 @@ export default {
     //    email: this.email,
     //  }
      console.log("register")
-     axios.post('http://localhost:3000/user/register', {
+     axios.post('http://54.159.216.132:3000/user/register', {
         username: this.username,
         password: this.password,
         firstname: this.firstname,

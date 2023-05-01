@@ -115,7 +115,7 @@ export default {
         formData.append("image", this.image[0]);
       }
         axios
-        .put(`http://localhost:3000/novel/${this.$route.params.novel_id}/${this.users.user_id}`,formData,{
+        .put(`http://54.159.216.132:3000/novel/${this.$route.params.novel_id}/${this.users.user_id}`,formData,{
             headers:{
                 'Content-Type': 'multipart/form-data'
             },
@@ -125,7 +125,7 @@ export default {
     },
     getNovel(){
         axios
-        .get(`http://localhost:3000/novel/${this.$route.params.novel_id}`)
+        .get(`http://54.159.216.132:3000/novel/${this.$route.params.novel_id}`)
         .then((res)=>{
             this.selectNovel = res.data.selectNovel;
             this.image.push(res.data.selectNovel[0].image)
