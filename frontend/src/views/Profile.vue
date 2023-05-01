@@ -8,9 +8,14 @@
                     <div class="card">
                         <div class="card-image pt-5">
                             <figure class="image">
-                                <img
+                                <img v-if="users.image != ''"
                                 style="height: 200px;width: 180px;"
                                 :src="users.image"
+                                alt="Placeholder image"
+                                />
+                                <img v-else
+                                style="height: 200px;width: 180px;"
+                                src="https://bulma.io/images/placeholders/640x360.png"
                                 alt="Placeholder image"
                                 />
                             </figure>
