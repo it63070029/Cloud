@@ -106,22 +106,19 @@
                     </span>
                   </label>
                 </div>
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img
-                        :src="showSelectImage(image)"
-                        alt="Placeholder image"
-                      />
-                    </figure>
-                  </div>
-                  <footer class="card-footer">
-                    <a
-                      @click="deleteSelectImage(index)"
-                      class="card-footer-item has-text-danger"
-                      >Delete</a
-                    >
-                  </footer>
+                <div v-if="newImage" class="columns is-multiline">
+                    <div v-for="(image, index) in newImage" :key="image.id" class="column is-one-quarter">
+                    <div class="card">
+                        <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img :src="showSelectImage(image)" alt="Placeholder image" />
+                        </figure>
+                        </div>
+                        <footer class="card-footer">
+                        <a @click="deleteSelectImage(index)" class="card-footer-item has-text-danger">Delete</a>
+                        </footer>
+                    </div>
+                    </div>
                 </div>
 
                 <!-- <label class="label">Username:</label>
