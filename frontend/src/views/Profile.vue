@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-image pt-5">
                             <figure class="image">
-                                <img v-if="users.image != ''"
+                                <img v-if="users.image != null"
                                 style="height: 200px;width: 180px;"
                                 :src="users.image"
                                 alt="Placeholder image"
