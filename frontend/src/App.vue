@@ -109,7 +109,7 @@ export default {
     },
     getUser () {
       const token = localStorage.getItem('token')
-      axios.get('/user/login').then(res => {
+      axios.get('http://54.159.216.132:3000/user/login').then(res => {
         this.user = res.data
       })
     },
