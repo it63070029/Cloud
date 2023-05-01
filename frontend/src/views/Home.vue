@@ -90,7 +90,7 @@ export default {
     getNovels() {
       console.log('เข้า get novel อยู่')
       axios
-        .get("http://localhost:3000", {
+        .get("http://54.159.216.132:3000", {
           params: {
             search: this.search,
           },
