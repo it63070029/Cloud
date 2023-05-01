@@ -88,6 +88,7 @@ export default {
   },
   methods: {
     getNovels() {
+      console.log('เข้า get novel อยู่')
       axios
         .get("http://localhost:3000", {
           params: {
