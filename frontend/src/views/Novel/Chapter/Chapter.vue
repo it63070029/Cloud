@@ -298,7 +298,7 @@ export default {
   props: ["user"],
   data() {
     return {
-      users: '',
+      users: null,
       selectNovels: [],
       chapters: [],
       novel_id: this.$route.params.novel_id,
