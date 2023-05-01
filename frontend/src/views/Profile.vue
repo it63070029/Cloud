@@ -10,7 +10,7 @@
                             <figure class="image">
                                 <img
                                 style="height: 200px;width: 180px;"
-                                src="users.image"
+                                :src="users.image"
                                 alt="Placeholder image"
                                 />
                             </figure>
