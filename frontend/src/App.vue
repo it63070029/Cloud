@@ -112,7 +112,7 @@ export default {
     getUser () {
       const token = localStorage.getItem('token')
       console.log(this.$hostname)
-      axios.get(`${this.$hostname}/user/login`).then(res => {
+      axios.get(this.$hostname+`/user/login`).then(res => {
         this.user = res.data
       })
     },
