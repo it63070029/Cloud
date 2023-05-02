@@ -51,14 +51,14 @@
           >
             <div class="card" style="height: 100%;">
               <div class="card-image pt-5">
-                <figure class="image">
+                <figure class="image is-4by3">
                   <img v-if="novel.image != null"
-                    style="height: 150px;width: 120px;"
+                    
                     :src="novel.image"
                     alt="Placeholder image"
                   />
                   <img v-else
-                    style="height: 150px;width: 120px;"
+                    
                     src="https://bulma.io/images/placeholders/640x360.png"
                     alt="Placeholder image"
                   />
