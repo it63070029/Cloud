@@ -55,7 +55,7 @@ export default {
     },
     createChapter(){
         axios
-        .post(`http://3.84.45.245:3000/novel/chapter/${this.$route.params.novel_id}`,{
+        .post(`${this.$hostname}/novel/chapter/${this.$route.params.novel_id}`,{
             name : this.name,
             detail:this.detail
         })

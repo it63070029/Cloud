@@ -323,7 +323,7 @@ export default {
     getNovels() {
       axios
         .get(
-          `http://3.84.45.245:3000/novel/chapter/${this.$route.params.novel_id}`
+          `${this.$hostname}/novel/chapter/${this.$route.params.novel_id}`
         )
         .then((res) => {
           this.selectNovels = res.data.selectNovels;
@@ -347,7 +347,7 @@ export default {
     deleteChapter(chapter_id) {
       axios
         .delete(
-          `http://3.84.45.245:3000/novel/${this.novel_id}/chapter/${chapter_id}`
+          `${this.$hostname}/novel/${this.novel_id}/chapter/${chapter_id}`
         )
         .then((res) => location.reload())
         .catch((err) => {
@@ -357,7 +357,7 @@ export default {
     getComments() {
       axios
         .get(
-          `http://3.84.45.245:3000/comment/${this.$route.params.novel_id}`
+          `${this.$hostname}/comment/${this.$route.params.novel_id}`
         )
         .then((res) => {
           this.comments = res.data.comments;
@@ -370,7 +370,7 @@ export default {
       console.log("test Post Comment" + this.$route.params.novel_id);
       axios
         .post(
-          `http://3.84.45.245:3000/comment/${this.$route.params.novel_id}/${this.users.user_id}`,
+          `${this.$hostname}/comment/${this.$route.params.novel_id}/${this.users.user_id}`,
           {
             comment_text: this.commentText,
           }
@@ -384,7 +384,7 @@ export default {
       console.log("Delete Comment" + comment_id);
       axios
         .delete(
-          `http://3.84.45.245:3000/comment/${comment_id}/${this.users.user_id}`
+          `${this.$hostname}/comment/${comment_id}/${this.users.user_id}`
         )
         .then((res) => location.reload())
         .catch((err) => {
@@ -393,7 +393,7 @@ export default {
     },
     changeComment() {
       axios
-        .put(`http://3.84.45.245:3000/comment/${this.comment_id}`, {
+        .put(`${this.$hostname}/comment/${this.comment_id}`, {
           comment_text: this.commentEdit,
         })
         .then((res) => location.reload())
