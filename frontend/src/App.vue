@@ -94,7 +94,7 @@ export default {
   data () {
     return {
       user: null,
-      port: '',
+      port: null,
       }
   },
   created(){
