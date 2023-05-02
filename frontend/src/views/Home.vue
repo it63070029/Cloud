@@ -49,7 +49,7 @@
             v-for="novel in novels"
             :key="novel.novel_id"
           >
-            <div class="card" style="height: 100%;">
+            <div class="card equal-height" style="height: 100%;">
               <div class="card-image pt-5">
                 <figure class="image is-4by3">
                   <img v-if="novel.image != null"
@@ -64,7 +64,7 @@
                   />
                 </figure>
               </div>
-              <div class="card-content" style="flex: auto;">
+              <div class="card-content">
                 <router-link
                   :to="{
                     name: 'chapterNovel',
@@ -232,3 +232,14 @@ export default {
   },
 };
 </script>
+<style scoped>
+  .equal-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-footer {
+  margin-top: auto;
+}
+</style>
