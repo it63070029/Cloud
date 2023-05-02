@@ -94,9 +94,13 @@ export default {
   data () {
     return {
       user: null,
+      port: '',
       }
   },
-   mounted () {
+  created(){
+    this.port = process.env.PORT
+  },
+  mounted () {
     this.onAuthChange()
   },
   methods: {
@@ -109,7 +113,7 @@ export default {
     },
     getUser () {
       const token = localStorage.getItem('token')
-      axios.get('http://3.84.45.245:3000/user/login').then(res => {
+      axios.get(`${this.port}/user/login`).then(res => {
         this.user = res.data
       })
     },
