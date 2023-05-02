@@ -64,7 +64,7 @@
                   />
                 </figure>
               </div>
-              <div class="card-content">
+              <div class="card-content" style="flex: auto;">
                 <router-link
                   :to="{
                     name: 'chapterNovel',
