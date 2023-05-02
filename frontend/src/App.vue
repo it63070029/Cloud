@@ -88,7 +88,7 @@
   </div>
 </template>
 
-<script>
+<script type="module">
 import axios from '@/plugins/axios'
 export default {
   data () {
