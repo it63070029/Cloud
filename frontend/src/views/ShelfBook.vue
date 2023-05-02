@@ -11,7 +11,7 @@
           <div class="column is-3" v-for="book in novelsShelf" :key="book.book_id">
             <div class="card equal-height" style="height: 100%;">
               <div class="card-image pt-5">
-                <figure class="image is-4by3">
+                <figure class="image">
                   <img v-if="book.image != null"
                     style="height: 150px;width: 120px;"
                     :src="book.image"
