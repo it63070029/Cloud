@@ -16,7 +16,7 @@
         <div class="columns is-multiline">
           
           <div class="column is-3" v-for="novel in novels" :key="novel.novel_id">
-            <div class="card">
+            <div class="card" style="height: 100%;">
               <div class="card-image pt-5">
                 <figure class="image">
                   <img v-if="novel.image != null"

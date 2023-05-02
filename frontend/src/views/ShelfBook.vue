@@ -9,7 +9,7 @@
         <div class="columns is-multiline">
           
           <div class="column is-3" v-for="book in novelsShelf" :key="book.book_id">
-            <div class="card">
+            <div class="card" style="height: 100%;">
               <div class="card-image pt-5">
                 <figure class="image">
                   <img v-if="book.image != null"
