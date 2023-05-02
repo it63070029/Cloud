@@ -122,7 +122,7 @@ export default {
 };
 
 </script>
-<style>
+<style scoped>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
   #app{
     font-family: 'IBM Plex Sans Thai', sans-serif;
