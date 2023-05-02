@@ -16,7 +16,7 @@
         <div class="columns is-multiline">
           
           <div class="column is-3" v-for="novel in novels" :key="novel.novel_id">
-            <div class="card" style="height: 100%;">
+            <div class="card equal-height" style="height: 100%;">
               <div class="card-image pt-5">
                 <figure class="image">
                   <img v-if="novel.image != null"
@@ -124,3 +124,14 @@ export default {
   },
 };
 </script>
+<style scoped>
+  .equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card-footer {
+    margin-top: auto;
+  }
+</style>
