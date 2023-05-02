@@ -94,11 +94,7 @@ export default {
   data () {
     return {
       user: null,
-      port: null,
       }
-  },
-  created(){
-    this.port = process.env.PORT
   },
   mounted () {
     this.onAuthChange()
@@ -113,7 +109,7 @@ export default {
     },
     getUser () {
       const token = localStorage.getItem('token')
-      axios.get(`${this.port}/user/login`).then(res => {
+      axios.get(`${process.env.PORT}/user/login`).then(res => {
         this.user = res.data
       })
     },
