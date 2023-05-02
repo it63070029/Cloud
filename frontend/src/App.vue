@@ -94,12 +94,12 @@ export default {
   data () {
     return {
       user: null,
-      port: '',
+      // port: '',
       }
   },
   mounted () {
     this.onAuthChange()
-    this.port = this.$hostname
+    // this.port = this.$hostname
   },
   methods: {
     onAuthChange () {
@@ -111,8 +111,8 @@ export default {
     },
     getUser () {
       const token = localStorage.getItem('token')
-      console.log(this.port)
-      axios.get(`${this.port}/user/login`).then(res => {
+      console.log(this.$hostname)
+      axios.get(`${this.$hostname}/user/login`).then(res => {
         this.user = res.data
       })
     },
