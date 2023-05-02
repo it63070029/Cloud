@@ -109,7 +109,7 @@ export default {
     },
     getUser () {
       const token = localStorage.getItem('token')
-      axios.get(`${process.env.PORT}/user/login`).then(res => {
+      axios.get(`${this.$hostname}/user/login`).then(res => {
         this.user = res.data
       })
     },

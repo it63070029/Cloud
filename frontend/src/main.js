@@ -17,6 +17,8 @@ Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 
+Vue.prototype.$hostname = '<http://3.84.45.245:8080>'
+
 new Vue({
   router,
   render: h => h(App)
