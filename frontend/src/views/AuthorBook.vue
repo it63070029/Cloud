@@ -90,7 +90,7 @@ export default {
   methods: {
     getNovels() {
       axios
-        .get(`http://18.206.137.146:3000/author/myBook/${this.users.user_id}`)
+        .get(`http://3.84.45.245:3000/author/myBook/${this.users.user_id}`)
         .then((res) => {
           this.novels = res.data.novels;
         })
@@ -106,13 +106,13 @@ export default {
     },
     deleteNovel(novel_id){
       axios
-      .delete(`http://18.206.137.146:3000/novel/${novel_id}`)
+      .delete(`http://3.84.45.245:3000/novel/${novel_id}`)
       .then((res) => location.reload())
       .catch((err) => {console.log(err);});
     },
      addView(novel_id){
       axios
-        .put(`http://18.206.137.146:3000/novel/addview/${novel_id}/${this.users.user_id}`)
+        .put(`http://3.84.45.245:3000/novel/addview/${novel_id}/${this.users.user_id}`)
         .then((response) => {
           let selectedNovel = this.novels.filter((e) => e.novel_id === novel_id)[0];
           selectedNovel.view = response.data.view;

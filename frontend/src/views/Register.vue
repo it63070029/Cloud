@@ -163,7 +163,7 @@ export default {
         };
 
         axios
-          .post("http://18.206.137.146:3000/user/register", data)
+          .post("http://3.84.45.245:3000/user/register", data)
           .then((res) => {
             alert("Sign up Success");
             this.$router.push('/user/login')

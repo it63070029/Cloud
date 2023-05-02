@@ -55,7 +55,7 @@
         applyToAuthor(){
             if (this.alias != ''){
                 axios
-                .put(`http://18.206.137.146:3000/applyAuthor/${this.users.user_id}`, {
+                .put(`http://3.84.45.245:3000/applyAuthor/${this.users.user_id}`, {
                     alias: this.alias
                 })
                 .then((res)=>{

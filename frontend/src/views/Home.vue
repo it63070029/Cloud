@@ -137,7 +137,7 @@ export default {
   methods: {
     getNovels() {
       axios
-        .get("http://18.206.137.146:3000/", {
+        .get("http://3.84.45.245:3000/", {
           params: {
             search: this.search,
           },
@@ -160,7 +160,7 @@ export default {
     addShelf(novel_id) {
       if (this.users != null) {
         axios
-          .post(`http://18.206.137.146:3000/shelfBook/`, {
+          .post(`http://3.84.45.245:3000/shelfBook/`, {
             novel_id: novel_id,
             user_id: this.users.user_id,
           })
@@ -175,7 +175,7 @@ export default {
       // for(let i=0;i<this.shelfBooks.length;i++){
       //   if(this.shelfBooks[i].novel_id!==novel_id){
       //     axios
-      //     .post(`http://18.206.137.146:3000/shelfBook`,{
+      //     .post(`http://3.84.45.245:3000/shelfBook`,{
       //       novel_id:novel_id,
       //       user_id:this.users.user_id
       //     })
@@ -187,7 +187,7 @@ export default {
     },
     getShelfBooks() {
       axios
-        .get(`http://18.206.137.146:3000/${this.users.user_id}`)
+        .get(`http://3.84.45.245:3000/${this.users.user_id}`)
         .then((res) => {
           this.shelfBooks = res.data.shelfBooks;
         })
@@ -199,7 +199,7 @@ export default {
       if (this.users != null) {
         axios
           .put(
-            `http://18.206.137.146:3000/novel/addlike/${novel_id}/${this.users.user_id}`
+            `http://3.84.45.245:3000/novel/addlike/${novel_id}/${this.users.user_id}`
           )
           .then((response) => {
             let selectedNovel = this.novels.filter(
@@ -217,7 +217,7 @@ export default {
     addView(novel_id) {
       axios
         .put(
-          `http://18.206.137.146:3000/novel/addview/${novel_id}/${this.users.user_id}`
+          `http://3.84.45.245:3000/novel/addview/${novel_id}/${this.users.user_id}`
         )
         .then((response) => {
           let selectedNovel = this.novels.filter(

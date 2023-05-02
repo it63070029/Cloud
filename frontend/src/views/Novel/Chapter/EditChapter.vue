@@ -61,7 +61,7 @@ export default {
     editChapter(){
       console.log("edit Chapter")
         axios
-        .put(`http://18.206.137.146:3000/novel/${this.$route.params.novel_id}/chapter/${this.$route.params.chapter_id}`,{
+        .put(`http://3.84.45.245:3000/novel/${this.$route.params.novel_id}/chapter/${this.$route.params.chapter_id}`,{
             name : this.selectchapter.name,
             detail:this.selectchapter.detail
         })
@@ -70,7 +70,7 @@ export default {
     },
     getChapter(){
         axios
-        .get(`http://18.206.137.146:3000/novel/${this.$route.params.novel_id}/chapter/editChapter/${this.$route.params.chapter_id}`)
+        .get(`http://3.84.45.245:3000/novel/${this.$route.params.novel_id}/chapter/editChapter/${this.$route.params.chapter_id}`)
         .then((res)=>{
             this.selectchapter = res.data.selectchapter;
         })

@@ -69,7 +69,7 @@ export default {
   methods: {
     getShelfBooks() {
       axios
-        .get(`http://18.206.137.146:3000/${this.$route.params.user_id}`)
+        .get(`http://3.84.45.245:3000/${this.$route.params.user_id}`)
         .then((res) => {
           this.shelfBooks = res.data.shelfBooks;
           this.novelsShelf= res.data.novelsShelf
@@ -83,7 +83,7 @@ export default {
     //     for(let i=0;i<this.shelfBooks.length;i++){
     //         console.log("555")
     //         axios
-    //         .get(`http://18.206.137.146:3000/${this.shelfBooks[i].novel_id}`)
+    //         .get(`http://3.84.45.245:3000/${this.shelfBooks[i].novel_id}`)
     //         .then((res) => {
     //             this.novelsShelf = res.data.novelsShelf;
     //         })
@@ -97,7 +97,7 @@ export default {
         //young tom mai dai
         console.log(novel_id)
         axios
-        .delete(`http://18.206.137.146:3000/${this.users.user_id}/${novel_id}`)
+        .delete(`http://3.84.45.245:3000/${this.users.user_id}/${novel_id}`)
         .then((res) => 
         
         location.reload()

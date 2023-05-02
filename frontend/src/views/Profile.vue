@@ -197,7 +197,7 @@ export default {
 
       axios
         .put(
-          `http://18.206.137.146:3000/profile/${this.users.user_id}`,
+          `http://3.84.45.245:3000/profile/${this.users.user_id}`,
           formData,
           {
             headers: {
