@@ -17,7 +17,7 @@ Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 
-Vue.prototype.$hostname = 'http://3.84.45.245:3000'
+Vue.prototype.$hostname = 'http://54.162.102.200:3000'
 
 new Vue({
   router,
